@@ -9,6 +9,9 @@ End Function
 '—LŒÀ¬””»’è
 Private Function IsFiniteDecimal(ByVal numerator As Variant, ByVal denominator As Variant) As Boolean
 
+    '0‘Îô
+    If denominator = 0 Then denominator = 1
+
     '•ª•ê•ªq‚Æ‚à®”‚É‚·‚é
     Dim slidecount As Integer
     slidecount = MaxInt(GetUnderInteger(numerator), GetUnderInteger(denominator))
