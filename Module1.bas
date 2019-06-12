@@ -1,9 +1,17 @@
 Attribute VB_Name = "Module1"
 Option Explicit
 
+'セルの値（数値）取得
+'文字列で取得したのをDecimalに変換しなおす。
+Function CellTextToValue(ByVal cell As Variant) As Variant
+    Dim s As String
+    s = cell.Text
+    CellTextToValue = CDec(s)
+End Function
+
 '有限小数判定
-Function IsYugen(ByVal numerator As Variant, ByVal denominator As Variant) As Boolean
-    IsYugen = IsFiniteDecimal(numerator, denominator)
+Function IsYugen(ByVal numeratorcell As Variant, ByVal denominatorcell As Variant) As Boolean
+    IsYugen = IsFiniteDecimal(CellTextToValue(numeratorcell), CellTextToValue(denominatorcell))
 End Function
 
 '有限小数判定
